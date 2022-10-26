@@ -26,9 +26,13 @@ export const routes =createBrowserRouter([
                 element:<GoogleSignin/>
             },
             {
-                path:'/blog/:id',
+                path:'/blogs',
                 element:<Blog/>
             },
+            // {
+            //     path:'/blog/:id',
+            //     element:<Blog/>
+            // },
             {
                 path:'/courses',
                 loader: () => {
