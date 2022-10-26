@@ -6,6 +6,7 @@ import Blog from "../Pages/Blog/Blog";
 import Checkout from "../Pages/Checkout/Checkout";
 import CourseDetails from "../Pages/Courses/CourseDetails";
 import Courses from "../Pages/Courses/Courses";
+import FAQ from "../Pages/FAQ/FAQ";
 import Home from "../Pages/Home/Home";
 
 export const routes =createBrowserRouter([
@@ -29,10 +30,10 @@ export const routes =createBrowserRouter([
                 path:'/blogs',
                 element:<Blog/>
             },
-            // {
-            //     path:'/blog/:id',
-            //     element:<Blog/>
-            // },
+            {
+                path:'/faq',
+                element:<FAQ/>
+            },
             {
                 path:'/courses',
                 loader: () => {
