@@ -2,7 +2,7 @@ import React from 'react';
 import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
 import app from '../firebase/firebase.config';
 
-const auth = getAuth(app);
+export const auth = getAuth(app);
 
 const GoogleSignin = () => {
 
