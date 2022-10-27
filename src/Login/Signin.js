@@ -1,56 +1,93 @@
-import React from 'react';
-import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
-import app from '../firebase/firebase.config';
-import { useState } from 'react';
+import React from "react";
+import {
+  getAuth,
+  GithubAuthProvider,
+  GoogleAuthProvider,
+  signInWithPopup,
+  signOut,
+} from "firebase/auth";
+import app from "../firebase/firebase.config";
+import { useState } from "react";
 
 export const auth = getAuth(app);
 
 const Signin = () => {
-    const [user, setUser]=useState({})
-    const provider = new GoogleAuthProvider();
+  const [user, setUser] = useState({});
+  const googleProvider = new GoogleAuthProvider();
+  const githubProvider = new GithubAuthProvider();
 
-    const handleGoogleSignIn = () => {
-        signInWithPopup(auth, provider)
-            .then(result => {
-                const user = result.user;
-                setUser(user);
-                console.log(user);
-            })
-            .catch(error => {
-                console.log('Error: ', error);
-            })
-    }
+  const handleGoogleSignIn = () => {
+    signInWithPopup(auth, googleProvider)
+      .then((result) => {
+        const user = result.user;
+        setUser(user);
+        // console.log(user);
+      })
+      .catch((error) => {
+        console.log("Error: ", error);
+      });
+  };
 
-    return (
+  const handleGithubSignIn=()=>{
+    signInWithPopup(auth, githubProvider)
+    .then(result=>{
+        const user = result.user;
+        setUser(user);
+        console.log(user);
+    })
+    .catch((error)=>{
+        console.log('error',error);
+    })
+  }
+
+  const handleSignOut = () => {
+    signOut(auth)
+      .then(() => {
+        setUser({});
+      })
+      .catch(() => {
+        setUser({});
+      });
+  };
+
+  return (
+    <div>
+      {user.uid ? (
+        <button onClick={handleSignOut}>Sign Out</button>
+      ) : (
+        <>
+            <button onClick={handleGoogleSignIn}>Google Sign In</button>
+            <button onClick={handleGithubSignIn}>Github Sign In</button>
+        </>
+      )}
+      {user.uid && (
         <div>
-      <button onClick={handleGoogleSignIn}>Google Sign In</button>
-      <button>Github Sign In</button>
-      <div>
-        <h5>User name: {user.displayName}</h5>
-        <p>Email address: {user.email}</p>
-        <img src= {user.photoURL} alt="" />
-      </div>
+          <h5>User name: {user.displayName}</h5>
+          <p>Email address: {user.email}</p>
+          <img src={user.photoURL} alt="" />
         </div>
-    );
+      )}
+    </div>
+  );
 };
 
 export default Signin;
-
-
-// =====================================
 
 // import React,{useContext,useState} from 'react';
 // import Button from 'react-bootstrap/Button';
 // import Form from 'react-bootstrap/Form';
 // import { FaGoogle } from 'react-icons/fa';
-// import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
 // import { Link, useLocation, useNavigate } from 'react-router-dom';
-// const Login = () => {
+// import { AuthContext } from '../context/AuthProvider/AuthProvider';
+
+// const Signin = () => {
+
 //     const [error, setError] = useState('');
 //     const naviGate = useNavigate();
 //     const location = useLocation();
 //     const from = location.state?.from?.pathname || '/';
 //     const {signIn,googleSignIn,githubSignIn} =useContext(AuthContext)
+
 //     const googleSign = ()=>{
 //         googleSignIn()
 //         .then(result=>{
@@ -76,7 +113,7 @@ export default Signin;
 //             console.log(error)
 //             setError(error.message);
 //         })
-        
+
 //     }
 //     const handleLogin = (event)=>{
 //         event.preventDefault();
@@ -117,8 +154,8 @@ export default Signin;
 //             {error}
 //         </Form.Text>
 //     </Form>
-   
+
 //     );
 // };
 
-// export default Login;
+// export default Signin;

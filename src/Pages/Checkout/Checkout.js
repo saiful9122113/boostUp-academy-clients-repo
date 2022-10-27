@@ -5,17 +5,21 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 const CheckOut = () => {
     const checkout = useLoaderData()
-    const{photoURL,name,Price}= checkout;
+    const{photoURL,name,price}= checkout;
+
+    const handlePurchase = () => {
+        alert(`${name} course purchase successfully!`)
+    }
     return (
         <div className='mt-2'>
             <Card style={{ width: '18rem' }}>
       <Card.Img variant="top" src={photoURL} />
       <Card.Body>
-        <Card.Title>{name}</Card.Title>
         <Card.Text>
-          
+          <input type="text" value={name} readOnly />
+          <input type="text" value={price} readOnly />
         </Card.Text>
-        <Button variant="primary">Price {Price}</Button>
+        <Button variant="primary" onClick={handlePurchase}>purchase ${price}</Button>
       </Card.Body>
     </Card>
         </div>
