@@ -1,6 +1,6 @@
 import React from "react"; 
  import { Navigate, useLocation, useNavigate } from "react-router-dom"; 
-import { auth } from "../Login/GoogleSignin";
+import { auth } from "../Login/Signin";
  import { logout } from "./logout"; 
 
   

@@ -16,9 +16,11 @@ const Header = () => {
             <Nav className="me-auto">
               <Nav.Link><Link to="/courses">Courses</Link></Nav.Link>
               <Nav.Link><Link to="/blogs">Blogs</Link></Nav.Link>
+              <Nav.Link><Link to="/faq">FAQ</Link></Nav.Link>
             </Nav>
             <Nav>
-              <Nav.Link><Link to="/faq">FAQ</Link></Nav.Link>
+            <Nav.Link><Link to="/login">Login</Link></Nav.Link>
+            <Nav.Link><Link to="/logout">Logout</Link></Nav.Link>
               <Nav.Link eventKey={2} href="#profile">
                 Profile
               </Nav.Link>

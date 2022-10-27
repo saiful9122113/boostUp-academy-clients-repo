@@ -1,30 +1,35 @@
 import { createBrowserRouter } from "react-router-dom";
 import PrivateRoute from "../Auth/PrivateRoute";
+import ErrorPage from "../ErrorPage/ErrorPage";
+// import ErrorPage from "../ErrorPage/ErrorPage";
 import Main from "../Layout/Main";
-import GoogleSignin from "../Login/GoogleSignin";
+import Signin from "../Login/Signin";
 import Blog from "../Pages/Blog/Blog";
 import Checkout from "../Pages/Checkout/Checkout";
 import CourseDetails from "../Pages/Courses/CourseDetails";
 import Courses from "../Pages/Courses/Courses";
 import FAQ from "../Pages/FAQ/FAQ";
-import Home from "../Pages/Home/Home";
 
 export const routes =createBrowserRouter([
     {
         path:'/',
         element:<Main></Main>,
+        // ErrorElement:<ErrorPage></ErrorPage>,
         children:[
             {
                 path:'/',
-                element:<Home/>
-            },
-            {
-                path:'/home',
-                element:<Home/>
+                loader: () => {
+                    return fetch(`http://localhost:5000/courses`)
+                },
+                element:<Courses/>
             },
             {
                 path:'/login',
-                element:<GoogleSignin/>
+                element:<Signin/>
+            },
+            {
+                path:'/logout',
+                element:<Signin/>
             },
             {
                 path:'/blogs',
@@ -56,5 +61,9 @@ export const routes =createBrowserRouter([
                 element:<PrivateRoute><Checkout /></PrivateRoute>
             },
         ]
+    },
+    {
+        path:'/*',
+        element:<ErrorPage/>
     }
 ])

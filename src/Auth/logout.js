@@ -1,5 +1,5 @@
 import { signOut } from "firebase/auth";
-import { auth } from "../Login/GoogleSignin";
+import { auth } from "../Login/Signin";
 
 export const logout = async (navigate) => {
     try {
