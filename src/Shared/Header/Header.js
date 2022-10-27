@@ -20,7 +20,7 @@ const Header = () => {
             </Nav>
             <Nav>
             <Nav.Link><Link to="/login">Login</Link></Nav.Link>
-            <Nav.Link><Link to="/logout">Logout</Link></Nav.Link>
+            <Nav.Link><Link to="/register">Register</Link></Nav.Link>
               <Nav.Link eventKey={2} href="#profile">
                 Profile
               </Nav.Link>

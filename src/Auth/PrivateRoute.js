@@ -1,6 +1,7 @@
 import React from "react"; 
  import { Navigate, useLocation, useNavigate } from "react-router-dom"; 
-import { auth } from "../Login/Signin";
+// import { auth } from "../Login/Signin";
+import { auth } from "../Register/Register";
  import { logout } from "./logout"; 
 
   

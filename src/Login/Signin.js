@@ -28,17 +28,17 @@ const Signin = () => {
       });
   };
 
-  const handleGithubSignIn=()=>{
+  const handleGithubSignIn = () => {
     signInWithPopup(auth, githubProvider)
-    .then(result=>{
+      .then((result) => {
         const user = result.user;
         setUser(user);
         console.log(user);
-    })
-    .catch((error)=>{
-        console.log('error',error);
-    })
-  }
+      })
+      .catch((error) => {
+        console.log("error", error);
+      });
+  };
 
   const handleSignOut = () => {
     signOut(auth)
@@ -50,24 +50,40 @@ const Signin = () => {
       });
   };
 
+  const handleRegister = (event) => {
+    event.preventDefault();
+    const email = event.target.email.value;
+    const password = event.target.password.value;
+    console.log(email, password);
+  };
+
   return (
-    <div>
-      {user.uid ? (
-        <button onClick={handleSignOut}>Sign Out</button>
-      ) : (
-        <>
+    <>
+      <form onSubmit={handleRegister}>
+        <input type="email" id="" name="email" placeholder="Email" />
+        <br />
+        <input type="password" id="" name="password" placeholder="Password" />
+        <br />
+        <button type="submit">Register</button>
+      </form>
+      <div>
+        {user.uid ? (
+          <button onClick={handleSignOut}>Sign Out</button>
+        ) : (
+          <>
             <button onClick={handleGoogleSignIn}>Google Sign In</button>
             <button onClick={handleGithubSignIn}>Github Sign In</button>
-        </>
-      )}
-      {user.uid && (
-        <div>
-          <h5>User name: {user.displayName}</h5>
-          <p>Email address: {user.email}</p>
-          <img src={user.photoURL} alt="" />
-        </div>
-      )}
-    </div>
+          </>
+        )}
+        {user.uid && (
+          <div>
+            <h5>User name: {user.displayName}</h5>
+            <p>Email address: {user.email}</p>
+            <img src={user.photoURL} alt="" />
+          </div>
+        )}
+      </div>
+    </>
   );
 };
 
