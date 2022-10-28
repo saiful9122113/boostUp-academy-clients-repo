@@ -1,23 +1,29 @@
-import React from "react"; 
+import { getAuth } from "firebase/auth";
+import React,{useContext} from "react"; 
  import { Navigate, useLocation, useNavigate } from "react-router-dom"; 
+import app from "../firebase/firebase.config";
 // import { auth } from "../Login/Signin";
-import { auth } from "../Register/Register";
  import { logout } from "./logout"; 
+ import {AuthContext} from '../context/AuthProvider/AuthProvider.js'
+
 
   
  const PrivateRoute = ({ children }) => { 
+  const {user}=useContext(AuthContext)
    const navigate = useNavigate(); 
    const location = useLocation(); 
-   console.log(auth)
+   const auth = getAuth(app)
   
-   if (!auth?.currentUser?.accessToken) { 
-    logout(navigate); 
-   } 
+  //  if (!auth?.currentUser?.accessToken) { 
+  //   logout(navigate); 
+  //  } 
+
   
-   return auth ? ( 
+  
+   return auth?.currentUser?.accessToken ? ( 
      children 
    ) : ( 
-     <Navigate to="/login" replace state={{ from: location }} /> 
+     <Navigate to="/login"  state={{ from: location }} replace /> 
    ); 
  }; 
   

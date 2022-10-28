@@ -1,7 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import PrivateRoute from "../Auth/PrivateRoute";
 import ErrorPage from "../ErrorPage/ErrorPage";
-// import ErrorPage from "../ErrorPage/ErrorPage";
 import Main from "../Layout/Main";
 import Log from "../Log/Log";
 import Signin from "../Login/Signin";
@@ -10,6 +9,7 @@ import Checkout from "../Pages/Checkout/Checkout";
 import CourseDetails from "../Pages/Courses/CourseDetails";
 import Courses from "../Pages/Courses/Courses";
 import FAQ from "../Pages/FAQ/FAQ";
+import Profile from "../Pages/Profile/Profile";
 import Regi from "../Regi/Regi";
 
 export const routes =createBrowserRouter([
@@ -21,7 +21,7 @@ export const routes =createBrowserRouter([
             {
                 path:'/',
                 loader: () => {
-                    return fetch(`http://localhost:5000/courses`)
+                    return fetch(`https://learning-platform-server-saiful9122113.vercel.app/courses`)
                 },
                 element:<Courses/>
             },
@@ -44,23 +44,27 @@ export const routes =createBrowserRouter([
             {
                 path:'/courses',
                 loader: () => {
-                    return fetch(`http://localhost:5000/courses`)
+                    return fetch(`https://learning-platform-server-saiful9122113.vercel.app/courses`)
                 },
                 element:<Courses/>
             },
             {
                 path:'/course/:id',
                 loader: ({params}) => {
-                    return fetch(`http://localhost:5000/course/${params.id}`)
+                    return fetch(`https://learning-platform-server-saiful9122113.vercel.app/course/${params.id}`)
                 },
                 element:<CourseDetails/>
             },
             {
                 path:'/checkout/:id',
                 loader: ({params}) => {
-                    return fetch(`http://localhost:5000/course/${params.id}`)
+                    return fetch(`https://learning-platform-server-saiful9122113.vercel.app/course/${params.id}`)
                 },
                 element:<PrivateRoute><Checkout /></PrivateRoute>
+            },
+            {
+                path:'/profile',
+                element:<PrivateRoute><Profile /></PrivateRoute>
             },
         ]
     },

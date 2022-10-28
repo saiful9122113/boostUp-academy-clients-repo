@@ -35,7 +35,7 @@ const CourseDetails = () => {
                 </div>
                 
                 <p>{courseData.text}</p>
-                <h6>Features</h6>
+                <h6>Features :</h6>
                 {
                     courseData.features.length && courseData.features.map((feature, index) => <p key={index}>{feature}</p>)
                 }

@@ -8,8 +8,13 @@ const Log = () => {
     const [error, setError] = useState('');
     const naviGate = useNavigate();
     const location = useLocation();
-    const from = location.state?.from?.pathname || '/';
+    const from = location.state?.from.pathname || '/';
+    console.log(from)
+
     const {signIn,googleSignIn,githubSignIn} =useContext(AuthContext)
+
+    // console.log(from)
+
     const googleSign = ()=>{
         googleSignIn()
         .then(result=>{

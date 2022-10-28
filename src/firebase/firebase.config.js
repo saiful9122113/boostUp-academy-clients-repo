@@ -6,7 +6,7 @@ import { initializeApp } from "firebase/app";
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyCS1EXR90RfkiKPq6h9RVW84n-m-TuhMuE",
-  authDomain: "learning-platform-811a5.firebaseapp.com",
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
   projectId: "learning-platform-811a5",
   storageBucket: "learning-platform-811a5.appspot.com",
   messagingSenderId: "669121516350",
@@ -31,3 +31,10 @@ export default app;
 //   messagingSenderId: process.env.REACT_APP_messagingSenderId,
 //   appId: process.env.REACT_APP_appId,
 // };
+
+// REACT_APP_apiKey=AIzaSyCS1EXR90RfkiKPq6h9RVW84n-m-TuhMuE
+// REACT_APP_authDomain=learning-platform-811a5.firebaseapp.com
+// REACT_APP_projectId=learning-platform-811a5
+// REACT_APP_storageBucket=learning-platform-811a5.appspot.com
+// REACT_APP_messagingSenderId=669121516350
+// REACT_APP_appId=1:669121516350:web:c41f519cefc89f1a3ad26f
