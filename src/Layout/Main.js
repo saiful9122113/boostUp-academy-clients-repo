@@ -1,14 +1,14 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import Regi from '../Regi/Regi';
 import Header from '../Shared/Header/Header';
+import Themes from '../Themes/Themes';
 
 const Main = () => {
     return (
         <div>
             <Header></Header>
             <Outlet></Outlet>
-            {/* <Regi></Regi> */}
+            {/* <Themes></Themes> */}
         </div>
     );
 };

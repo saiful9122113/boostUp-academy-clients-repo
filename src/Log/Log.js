@@ -1,7 +1,7 @@
 import React,{useContext,useState} from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-// import { FaGoogle } from 'react-icons/fa';
+import { FaGoogle, FaGithub, } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthProvider/AuthProvider';
 const Log = () => {
@@ -70,10 +70,8 @@ const Log = () => {
             Login
         </Button>
         <p>You dont't have an account? <Link to='/register'>Register</Link></p>
-        <Button onClick={googleSign} className='d-block mt-2'>Login with Google</Button>
-        <Button onClick={githubSign} className='d-block mt-2'>Login with Gihub</Button>
-        {/* <Button onClick={googleSign} className='d-block mt-2'><FaGoogle></FaGoogle> Login with Google</Button>
-        <Button onClick={githubSign} className='d-block mt-2'><FaGoogle></FaGoogle> Login with Gihub</Button> */}
+        <Button onClick={googleSign} className='d-block mt-2'><FaGoogle></FaGoogle> Login with Google</Button>
+        <Button onClick={githubSign} className='d-block mt-2'><FaGithub></FaGithub> Login with Gihub</Button>
         <Form.Text className="text-danger">
             {error}
         </Form.Text>
