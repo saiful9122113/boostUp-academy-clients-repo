@@ -39,7 +39,6 @@ const CourseDetails = () => {
                 {
                     courseData.features.length && courseData.features.map((feature, index) => <p key={index}>{feature}</p>)
                 }
-                <h6>Price: {courseData.price}</h6>
                 <Button onClick={() => handleCheckoutPage(courseData.id)}>Get premium access</Button>
             </Col>
         </Row>}

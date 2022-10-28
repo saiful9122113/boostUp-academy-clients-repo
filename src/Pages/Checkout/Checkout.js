@@ -11,7 +11,7 @@ const CheckOut = () => {
         alert(`${name} course purchase successfully!`)
     }
     return (
-        <div className='mt-2'>
+        <div className='mt-2 text-center'>
             <Card style={{ width: '18rem' }}>
       <Card.Img variant="top" src={photoURL} />
       <Card.Body>
