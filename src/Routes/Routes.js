@@ -3,7 +3,6 @@ import PrivateRoute from "../Auth/PrivateRoute";
 import ErrorPage from "../ErrorPage/ErrorPage";
 import Main from "../Layout/Main";
 import Log from "../Log/Log";
-import Signin from "../Login/Signin";
 import Blog from "../Pages/Blog/Blog";
 import Checkout from "../Pages/Checkout/Checkout";
 import CourseDetails from "../Pages/Courses/CourseDetails";
@@ -16,7 +15,6 @@ export const routes =createBrowserRouter([
     {
         path:'/',
         element:<Main></Main>,
-        // ErrorElement:<ErrorPage></ErrorPage>,
         children:[
             {
                 path:'/',

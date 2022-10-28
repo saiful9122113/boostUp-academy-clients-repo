@@ -4,9 +4,12 @@ import app from '../../firebase/firebase.config';
 
 const Profile = () => {
     const {currentUser} = getAuth(app);
+    
     return (
-        <div>
-            <h3>This is for Profile</h3>
+        <div className='text-center mt-4'>
+            <img src={currentUser.photoURL} alt="" />
+            <h6>Name : {currentUser.displayName}</h6>
+            <h6>Email : {currentUser.email}</h6>
         </div>
     );
 };

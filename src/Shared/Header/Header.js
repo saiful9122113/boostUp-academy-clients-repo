@@ -44,9 +44,9 @@ const Header = () => {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link><Link to="/courses">Courses</Link></Nav.Link>
-              <Nav.Link><Link to="/blogs">Blogs</Link></Nav.Link>
-              <Nav.Link><Link to="/faq">FAQ</Link></Nav.Link>
+              <Nav.Link onClick={() => handleRoute("/courses")}>Courses</Nav.Link>
+              <Nav.Link onClick={() => handleRoute("/blogs")}>Blogs</Nav.Link>
+              <Nav.Link onClick={() => handleRoute("/faq")}>FAQ</Nav.Link>
             </Nav>
             <Nav>
               {userInfo && userInfo.accessToken ? <Button onClick={handleLogout}>Logout</Button> : <>

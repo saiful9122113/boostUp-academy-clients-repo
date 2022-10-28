@@ -18,23 +18,3 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 export default app;
-
-
-
-
-
-// const firebaseConfig = {
-//   apiKey: process.env.REACT_APP_apiKey,
-//   authDomain: process.env.REACT_APP_authDomain,
-//   projectId: process.env.REACT_APP_projectId,
-//   storageBucket: process.env.REACT_APP_storageBucket,
-//   messagingSenderId: process.env.REACT_APP_messagingSenderId,
-//   appId: process.env.REACT_APP_appId,
-// };
-
-// REACT_APP_apiKey=AIzaSyCS1EXR90RfkiKPq6h9RVW84n-m-TuhMuE
-// REACT_APP_authDomain=learning-platform-811a5.firebaseapp.com
-// REACT_APP_projectId=learning-platform-811a5
-// REACT_APP_storageBucket=learning-platform-811a5.appspot.com
-// REACT_APP_messagingSenderId=669121516350
-// REACT_APP_appId=1:669121516350:web:c41f519cefc89f1a3ad26f
