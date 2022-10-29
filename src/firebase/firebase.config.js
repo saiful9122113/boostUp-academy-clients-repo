@@ -18,3 +18,35 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 export default app;
+
+
+
+
+
+
+
+
+
+
+
+
+// // Import the functions you need from the SDKs you need
+// import { initializeApp } from "firebase/app";
+// // TODO: Add SDKs for Firebase products that you want to use
+// // https://firebase.google.com/docs/web/setup#available-libraries
+
+// // Your web app's Firebase configuration
+// const firebaseConfig = {
+//   apiKey: "AIzaSyBywUCg_RAEE_X03l6CNm-Ao1ic9gXpFSY",
+//   authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+//   projectId: "n-learning-platform",
+//   storageBucket: "n-learning-platform.appspot.com",
+//   messagingSenderId: "217742930920",
+//   appId: "1:217742930920:web:0055ec6e244189b6daea5d"
+// };
+
+// // Initialize Firebase
+// const app = initializeApp(firebaseConfig);
+
+// export default app;
+
